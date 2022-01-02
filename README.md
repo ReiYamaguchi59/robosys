@@ -24,6 +24,9 @@ gpio25ピンから抵抗、LEDと圧電ブザー、GNDピンの順に配列す�
 ![](https://lh3.googleusercontent.com/G9CgZZSwJNgv6Y6Hd8fIjQkd5uOVv7E9u5gnbNJCJao32J0oTpG5-ZiQ9J9cQWBVUKUvyjYQ1n4xrEsWjjsy-zHeX3fw6VfscR-YQb-olQ)
 
 # 動作方法
+```
+sudo rmmod myled
+```
  ```
  sudo insmod myled.ko
  ```
