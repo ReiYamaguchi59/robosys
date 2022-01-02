@@ -2,10 +2,6 @@
 
 ロボットシステム学の課題1のリポジトリ
 
-# 開発環境:
-* Rasberry Pi3
-  * ubuntu20.04
-
 # 使用機器
 * PC(ubuntu18.04を使用)
 * Rasberry Pi 3
@@ -16,6 +12,10 @@
 * 抵抗100Ω
 * 圧電ブザー
 * ジャンパー線
+
+# 開発環境:
+* Rasberry Pi3
+  * ubuntu20.04
 
 # 配線
 gpio25ピンから抵抗、LEDと圧電ブザー、GNDピンの順に配列する。
@@ -37,3 +37,13 @@ gpio25ピンから抵抗、LEDと圧電ブザー、GNDピンの順に配列す�
  消灯
  ```
  echo 0 > /dev/myled0
+ ```
+ 
+  # ライセンス
+ Copyright (c) 2021 Ryuich Ueda
+ 
+ This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or any later version.
+ 
+ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
