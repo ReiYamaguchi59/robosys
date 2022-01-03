@@ -9,9 +9,8 @@
 * LANケーブル
 * ブレッドボード
 * LED×1
-* 抵抗100Ω
+* 抵抗1kΩ
 * 圧電ブザー
-* ジャンパー線
 
 # 開発環境:
 * Rasberry Pi3
@@ -20,8 +19,8 @@
 # 配線
 gpio25ピンから抵抗、LEDと圧電ブザー、GNDピンの順に配列する。
 
-![](https://lh3.googleusercontent.com/djGr50s7JCHUsFOD3r2aYdzRQE1s4wWumOpIDoSAnVMYrCLV8fnCsTNJWdTdL7-yGFwPuKwYIdZKYy6JGzHsmGCJtgCNClYYOMoFlz17)
-![](https://lh3.googleusercontent.com/G9CgZZSwJNgv6Y6Hd8fIjQkd5uOVv7E9u5gnbNJCJao32J0oTpG5-ZiQ9J9cQWBVUKUvyjYQ1n4xrEsWjjsy-zHeX3fw6VfscR-YQb-olQ)
+![](https://lh3.googleusercontent.com/5XVVP76mozH5nTRnFArJEeF2bGDebCs_uXAj4k6lGFsCxTR5IYqvNhHSX1PQAkgyDRVggLZUriQjCnwzPMu0rgWsjfyjzjbVlbw5-3d5hw)
+![](https://lh3.googleusercontent.com/2YnfVsCZ_gcHF1fi-zvSBoEVayzknAahSlrE5Jc_n35a2a3pv_3jcnWK3qB2E025ehu3FLVgbLGCYQzTfgcwAuLlgM_veXAucifQ-w4Y)
 
 # 動作方法
 ```
@@ -33,20 +32,19 @@ sudo rmmod myled
  ```
  sudo chmod 666 /dev/myled0
  ```
-点灯
+LED点灯
  ```
  echo 1 > /dev/myled0
  ```
- 消灯
+ ブザーを鳴らす
+ ```
+ echo 2 > /dev/myled0
+ ```
+ LED、ブザーを消す
+ 
  ```
  echo 0 > /dev/myled0
  ```
  
   # ライセンス
- Copyright (c) 2021 Ryuich Ueda
- 
- This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or any later version.
- 
- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- 
- You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
+myled.c is under GNU General Public License v3.0(https://www.gnu.org/licenses/gpl-3.0.ja.html)
