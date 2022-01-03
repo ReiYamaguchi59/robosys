@@ -7,7 +7,7 @@
 #include <linux/device.h>
 #include <linux/uaccess.h>
 #include <linux/io.h>
-MODULE_AUTHOR("Rei20C1123");
+MODULE_AUTHOR("Rei20C1123,Ryuichi Ueda");
 MODULE_DESCRIPTION("driver for LED control");
 MODULE_LICENSE("GPL");
 MODULE_VERSION("0.0.1");
