@@ -1,7 +1,5 @@
-//SPDX-License-Identifier:GPL-3.0
-/*
-*Copyright(c)2021 Ryuichi Ueda. Allrights reserved.
-*/
+/*LICENSE:GNU General Public License v3.0*/
+/*Copyright(c)2021 Rei Yamaguchi,Ryuichi Ueda. Allrights reserved.*/
 
 #include <linux/module.h>
 #include <linux/fs.h>
@@ -28,8 +26,14 @@ static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_
 
         if(c == '0'){
 	        gpio_base[10] = 1 << 25;
+		gpio_base[10] = 1 << 18;
         }else if(c == '1'){
 	        gpio_base[7] = 1 << 25;
+		gpio_base[10] = 1 << 18;
+	}
+	 else if (c == '2'){
+		 gpio_base[7] = 1 << 18;
+		 gpio_base[10] = 1 << 25;
 	}
 
         printk(KERN_INFO "receive %c\n",c);       
@@ -69,10 +73,16 @@ static int __init init_mod(void)
 	gpio_base = ioremap_nocache(0x3f200000, 0xA0);
 
 	const u32 led = 25;
-        const u32 index = led/10;//GPFSEL2
-        const u32 shift = (led%10)*3;//15bit
-        const u32 mask = ~(0x7 << shift);//11111111111111000111111111111111
+        const u32 index = led/10;
+        const u32 shift = (led%10)*3;
+        const u32 mask = ~(0x7 << shift);
         gpio_base[index] = (gpio_base[index] & mask) | (0x1 << shift);
+
+	const u32 buz = 18;
+        const u32 index2 = buz/10;
+        const u32 shift2 = (buz%10)*3;
+        const u32 mask2 = ~(0x7 << shift2);
+        gpio_base[index2] = (gpio_base[index2] & mask2) | (0x1 << shift2);
 	        
 	return 0;
 }
